@@ -1,3 +1,5 @@
+'use strict';
+
 /**
  * [chartjs-plugin-labels]{@link https://github.com/emn178/chartjs-plugin-labels}
  *
@@ -6,8 +8,21 @@
  * @copyright Chen, Yi-Cyuan 2017-2018
  * @license MIT
  */
-(function () {
-  'use strict';
+
+(function( factory ) {
+
+  if ( typeof define === "function" && define.amd ) {
+
+    // AMD. Register as an anonymous module.
+    define(["chart"], factory );
+    
+  } else {
+    // Browser globals
+    factory( Chart );
+  }
+    
+}(function( Chart ) {
+
 
   if (typeof Chart === 'undefined') {
     console.error('Can not find Chart object.');
@@ -487,4 +502,5 @@
       });
     }
   });
-})();
+
+}));
